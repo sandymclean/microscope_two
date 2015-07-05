@@ -1,5 +1,4 @@
-var postsData = [
-  {
+var postsData = [{
     title: 'Introducing Microscope Two',
     url: 'http://sachagreif.com/introducing-telescope/'
   },
@@ -17,6 +16,10 @@ var postsData = [
 
 Template.postsList.helpers({
   posts: function() {
-    return Posts.find();
+    return Posts.find({}, {
+      sort: {
+        submitted: -1
+      }
+    });
   }
 });
